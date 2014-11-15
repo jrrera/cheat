@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="inline-header">Tasks</h2>
+      <span class="badge" ng-show="todo.todos.length">{{ todo.todos.length }}</span>
+      <button type="button" class="btn btn-default btn-sm add-button" ng-click="todo.createTask = !todo.createTask;" >
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>  
+    </div>  
+
+    <!-- Todos input -->
+    <div class="panel-body task-panel">
+      <form role="form" ng-show="todo.createTask" ng-submit="todo.addTodo()">
+        <div class="col-md-10">
+          <div class="input-group">
+            <div class="input-group-addon">New Task</div>
+            <input type="text" ng-model="todo.todo" placeholder="What needs to be done?" class="form-control">
+          </div>
+          <br />
+          <div class="input-group">
+            <div class="input-group-addon">Point Value</div>
+            <select class="form-control" ng-model="todo.value">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            
+            <span class="input-group-btn">
+              <input type="submit" class="btn btn-primary" value="Add">
+            </span>
+          </div>
+          <hr />
+        </div>
+
+      </form>
+        
+      <!-- Recommend adding a task if no tasks and not in the middle of creating one -->
+      <div ng-show="!todo.todos.length && !todo.createTask">
+        <div class="alert alert-info" role="alert">Try adding a task first. :)</div>
+      </div>
+
+      <div ui-sortable ng-model="todo.todos"> 
+      <div class="input-group draggable" ng-repeat="entry in todo.todos">
+        <div class="input-group-addon"><span class="glyphicon glyphicon-ok"></span></div>
+        <input type="text" ng-model="entry.task" class="form-control" readonly>
+        <span class="input-group-btn">
+          <button class="btn btn-info" aria-label="Point Value">{{entry.value}}</button>
+        </span>
+        <span class="input-group-btn">
+          <button class="btn btn-success" ng-click="todo.completeTodo($index)" aria-label="Mark Complete">√</button>
+        </span>
+        <span class="input-group-btn">
+          <button class="btn btn-danger" ng-click="todo.removeTodo($index)" aria-label="Remove">X</button>
+        </span>
+      </div>
+      </div>
+    </div>
+</div>

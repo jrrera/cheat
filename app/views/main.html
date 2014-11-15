@@ -1,0 +1,38 @@
+<div class="container">
+  
+  <section class="welcome" ng-hide="onboard.testItOut">
+
+    <div class="page-header">
+      <h1>Welcome to Cheat <br /><small>(The cheat-on-your-diet app.)</small>
+      </h1>
+    </div>
+
+    <div>
+      <p class="lead">Let's face it, we inevitably cheat on our diets. In fact, many eating regimens now recommend periodic cheat days to maintain sanity. Why not take control of these cheat days and actively earn them?</p>
+
+      <p class="lead">Cheat allows you to:</p>
+
+      <div>
+        <ul>
+          <li>Link projects and tasks to progress towards a cheat meal.</li>
+          <li>Specify different types of cheat meals that you can work towards.</li>
+          <li>Enjoy a cheat meal guilt-free.</li>
+        </ul>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="onboard.testItOut = true;">Ready to give it a try?</button>
+    </div>
+  </section>
+</div>
+<div class="container-fluid">
+  <section ng-show="onboard.testItOut">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <todo></todo>
+      </div>
+      <div class="col-md-5">
+        <cheats></cheats>
+      </div>
+    </div>    
+  </section>
+</div>

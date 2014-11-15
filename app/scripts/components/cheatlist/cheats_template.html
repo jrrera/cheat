@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="inline-header">Cheat Meals</h2>
+      <button type="button" class="btn btn-default btn-sm add-button cheat-button" ng-click="cheat.createTask = !cheat.createTask;" >
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>  
+      <span class="label label-success">You have {{ cheat.getTokenCount() }} tokens to redeem.</span>
+    </div>  
+
+    <!-- Todos input -->
+    <div class="panel-body task-panel">
+      <form role="form" ng-show="cheat.createTask" ng-submit="cheat.addCheat()">
+        <div class="col-md-10">
+          <div class="input-group">
+            <div class="input-group-addon">Cheat</div>
+            <input type="text" ng-model="cheat.cheatItem" placeholder="What kind of cheat meal are we talking here?" class="form-control">
+          </div>
+          <br />
+          <div class="input-group">
+            <div class="input-group-addon">Cost</div>
+            <input type="text" ng-model="cheat.value" placeholder="What's this cheat meal worth?" class="form-control">
+            <span class="input-group-btn">
+              <input type="submit" class="btn btn-primary" value="Add">
+            </span>
+          </div>
+          <hr />
+        </div>
+      </form>
+
+      <div ui-sortable ng-model="cheat.cheats"> 
+      <div class="input-group draggable" ng-repeat="entry in cheat.cheats">
+        <div class="input-group-addon"><span class="glyphicon glyphicon-cutlery"></span></div>        
+        <input type="text" ng-model="entry.cheatItem" class="form-control" readonly>
+        <span class="input-group-btn">
+          <button class="btn btn-info" aria-label="Point Value">{{entry.value}}</button>
+        </span>
+        <span class="input-group-btn">
+          <button class="btn btn-success" ng-click="cheat.redeemCheat($index)" aria-label="Mark Complete">Redeem!</button>
+        </span>
+        <span class="input-group-btn">
+          <button class="btn btn-danger" ng-click="cheat.removeCheat($index)" aria-label="Remove">X</button>
+        </span>
+      </div>
+      </div>
+    </div>
+</div>
