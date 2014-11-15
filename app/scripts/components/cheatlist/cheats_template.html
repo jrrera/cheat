@@ -29,7 +29,7 @@
       </form>
 
       <div ui-sortable ng-model="cheat.cheats"> 
-      <div class="input-group draggable" ng-repeat="entry in cheat.cheats">
+      <div class="input-group draggable" ng-repeat="entry in cheat.cheats track by $index">
         <div class="input-group-addon"><span class="glyphicon glyphicon-cutlery"></span></div>        
         <input type="text" ng-model="entry.cheatItem" class="form-control" readonly>
         <span class="input-group-btn">

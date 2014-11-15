@@ -91,7 +91,7 @@ cheat.application.Directive.CheatsList.prototype.controllerFunc = function(Token
     this.redeemCheat = function (index) {
       var tokenCount = TokenService.getTokenCount(),
         cheatCost = parseInt(this.cheats[index].value),
-        redeemedCheat;
+        redeemedCheatArr;
 
       if (tokenCount < cheatCost) {
         alert('You only have ' + tokenCount + ' tokens. Redeem this once you have enough. :)')
@@ -99,8 +99,10 @@ cheat.application.Directive.CheatsList.prototype.controllerFunc = function(Token
       }
 
       if (confirm('Are you sure you want to redeem?')) {
-        redeemedCheat = this.cheats.splice(index, 1);
+        redeemedCheatArr = this.cheats.splice(index, 1);
         this.TokenService.removeTokens(cheatCost);
+        alert('Enjoy ' + redeemedCheatArr[0].cheatItem + '!');
+
         this.DataService.saveData('cheatsList', this.cheats);
       }
 
