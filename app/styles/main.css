@@ -7,6 +7,7 @@ body {
 body:after {
   content: "";
   background: url("../images/food-bg.jpg");
+  background-size: cover;
   opacity: 0.8;
   top: 0;
   left: 0;
@@ -34,9 +35,9 @@ body:after {
 }
 
 /* Custom page footer */
-.footer {
+.footer, .footer a {
   padding-top: 19px;
-  color: #000;
+  color: white;
   text-align: center;
 }
 
