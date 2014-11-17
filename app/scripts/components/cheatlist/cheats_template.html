@@ -2,10 +2,10 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h2 class="inline-header">Cheat Meals</h2>
-      <button type="button" class="btn btn-default btn-sm add-button cheat-button" ng-click="cheat.createTask = !cheat.createTask;" >
+      <button type="button" class="btn btn-default btn-sm add-button" ng-click="cheat.createTask = !cheat.createTask;" >
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       </button>  
-      <span class="label label-success">You have {{ cheat.getTokenCount() }} tokens to redeem.</span>
+      <span class="label label-success" id="token-count">You have {{ cheat.getTokenCount() }} tokens to redeem.</span>
     </div>  
 
     <!-- Todos input -->

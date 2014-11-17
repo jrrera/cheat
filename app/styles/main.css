@@ -100,12 +100,13 @@ body:after {
 
 .add-button {
   margin-bottom: 10px;
-  position: relative;
-  left: 70%;
+  position: absolute;
+  left: 90%;
+  top: 25px;
 }
 
-.cheat-button {
-  left: 55%;
+#token-count {
+  margin-left: 10%;
 }
 
 
